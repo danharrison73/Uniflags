@@ -1,6 +1,8 @@
 # Flags Protoype Readme
 
-IMPORTANT: new GitHub repository found at 
+IMPORTANT: new GitHub repository: https://github.com/danharrison73/Uniflags
+
+Clone from GitHub
 
 Firstly Google cloud SDK needs to be installed.
 
