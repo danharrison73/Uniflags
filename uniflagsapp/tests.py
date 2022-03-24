@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 from django.test import TestCase
 
+from uniflagsapp.apps import UniflagsappConfig
+
 
 class User_test(TestCase):
     # method which is called before the tests start
@@ -30,3 +32,9 @@ class User_test(TestCase):
     # testing working of the sign_in method
     def test_signIn(self):
         self.assertTrue(authenticate(username="user1", password="password"))
+
+    def test_config(self):
+        self.assertEquals(UniflagsappConfig.name, 'uniflagsapp')
+
+    def test_autofield(self):
+        self.assertEquals(UniflagsappConfig.default_auto_field, 'django.db.models.BigAutoField')
