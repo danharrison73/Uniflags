@@ -44,6 +44,8 @@
 <!--                src="https://www.google.com/maps/embed/v1/view?zoom=16&center=50.7371%2C-3.5351&key=AIzaSyBbN1Zdz9LktJuPSF-ZioLqxW-P2dM_qFg">-->
 <!--        </iframe>-->
         <div id="home-map" class="home-map"></div>
+        <br>
+        <h3 id="flag-message">Select a flag to capture!</h3>
 
         <script>
           function initMap() {
@@ -90,7 +92,7 @@
 
               locationButton.textContent = "Update location";
               locationButton.classList.add("custom-map-control-button");
-              map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(locationButton);
+              map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(locationButton);
               locationButton.addEventListener("click", () => {
                 // Try HTML5 geolocation.
                 if (navigator.geolocation) {
@@ -154,9 +156,8 @@
           rotation: 0,
           scale: 6,
            };
-
           let pos1 = {lat: 50.73838, lng: -3.53586};
-          let pos2 = {lat: 50.73807, lng: -3.53066};
+          let pos2 = {lat: 50.73849, lng: -3.53102};
           let pos3 = {lat: 50.737, lng: -3.532};
           let pos4 = {lat: 50.738, lng: -3.533};
           let pos5 = {lat: 50.737, lng: -3.533};
@@ -169,8 +170,18 @@
           let marker5 = new google.maps.Marker({position: pos5, map: map, icon: flagMarkerRed});
           let marker6 = new google.maps.Marker({position: pos6, map: map, icon: flagMarkerGreen});
 
-          google.maps.event.addListener(marker1, 'click', function() {
+          let flagMessage = document.getElementById('flag-message');
+
+          google.maps.event.addListener(marker2, 'click', function() {
             window.location.href = 'scan';
+          });
+
+          google.maps.event.addListener(marker1, 'click', function() {
+            flagMessage.textContent = "Your are not close enough to this flag!";
+          });
+
+          google.maps.event.addListener(marker3, 'click', function() {
+            flagMessage.textContent = "Your are not close enough to this flag!";
           });
 
           }

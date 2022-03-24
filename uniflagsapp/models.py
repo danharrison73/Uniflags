@@ -9,5 +9,14 @@ class Flag(models.Model):
     lng = models.FloatField(default=0)
     owner = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return str(self.id)
+
+    def get_coords(self):
+        return self.lat, self.lng
+
+    def get_owner(self):
+        return self.owner
+
 # class PlatformUser(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE)

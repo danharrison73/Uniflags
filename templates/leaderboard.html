@@ -53,35 +53,25 @@
           <br>
 
         <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">User</th>
-      <th scope="col">Flags</th>
-      <th scope="col">Occupation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>dingle82 [GRP8]</td>
-      <td>3</td>
-      <td>50%</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>maxsatch [GRP8]</td>
-      <td>2</td>
-      <td>33%</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>dwanynej99</td>
-      <td>1</td>
-      <td>16%</td>
-    </tr>
-  </tbody>
-</table>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">User</th>
+              <th scope="col">Flags</th>
+              <th scope="col">Occupation</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in data %}
+              <tr>
+                <td scope="row">1</td>
+                <td>{{row.username}}</td>
+                <td>{{row.flag_count}}</td>
+                <td>{{row.flag_pct}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
 
       <footer class="mastfoot">

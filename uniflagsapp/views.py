@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 
 from django.contrib.auth.models import User
+from .models import Flag
 
 
 @login_required(login_url='signin')
@@ -54,10 +55,44 @@ def signout(request):
     messages.info(request, "You have succesfully logged out.")
     return redirect("signin")
 
+def question(request):
+    current_user = request.user
+
+    print(current_user)
+    # user = User.objects.filter(username=current_user)
+    # new_flag = Flag(lat=0, lng=0, owner=current_user)
+    # new_flag.save()
+    return render(request, 'question.html')
+
 
 @login_required(login_url='signin')
 def leaderboard(request):
-    return render(request, 'leaderboard.html')
+    flags = Flag.objects.all()
+    users = User.objects.all()
+
+    number_of_flags = flags.count()
+
+    data = []
+
+    for flag in flags:
+        owner = flag.get_owner().username
+        owner_in_data = False
+        for i in data:
+            if i['username'] == owner:
+                owner_in_data = True
+                i['flag_count'] += 1
+        if not owner_in_data:
+            data.append({'username':owner, 'flag_count':1, 'flag_pct':0})
+
+    for i in data:
+        i['flag_pct'] = round(i['flag_count'] * 100 / number_of_flags)
+
+    data = sorted(data, key=lambda d: d['flag_count'], reverse=True)
+    data = data[:5]
+
+    print(data)
+
+    return render(request, 'leaderboard.html', {'data': data})
 
 
 @login_required(login_url='signin')
