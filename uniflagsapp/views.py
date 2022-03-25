@@ -56,9 +56,9 @@ def signout(request):
     return redirect("signin")
 
 def question(request):
-    current_user = request.user
-
-    print(current_user)
+    # current_user = request.user
+    #
+    # print(current_user)
     # user = User.objects.filter(username=current_user)
     # new_flag = Flag(lat=0, lng=0, owner=current_user)
     # new_flag.save()

@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -89,6 +88,7 @@ if os.getenv('GAE_APPLICATION', None):
             'USER': 'dan',
             'PASSWORD': 'Ctf8game',
             'NAME': 'main',
+            'CONN_MAX_AGE': 9
         }
     }
 else:
@@ -139,8 +139,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = 'static/'
 STATICFILES_DIRS = []
 
 # Default primary key field type
