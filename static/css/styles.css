@@ -69,6 +69,10 @@ div.home-map {
   border: 1px;
 }
 
+.location-button {
+    padding: 50px;
+}
+
 
 
 /*
@@ -80,7 +84,6 @@ header {
   flex-direction: row;
   justify-content: center;
 }
-
 
 .navbar {
 }

@@ -1,3 +1,5 @@
+# Written by Dan and Max
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
@@ -56,12 +58,10 @@ def signout(request):
     return redirect("signin")
 
 def question(request):
-    # current_user = request.user
-    #
-    # print(current_user)
-    # user = User.objects.filter(username=current_user)
-    # new_flag = Flag(lat=0, lng=0, owner=current_user)
-    # new_flag.save()
+    current_user = request.user
+    user = User.objects.filter(username=current_user)
+    new_flag = Flag(lat=0, lng=0, owner=current_user)
+    new_flag.save()
     return render(request, 'question.html')
 
 
@@ -74,6 +74,7 @@ def leaderboard(request):
 
     data = []
 
+    # goes through all the flags and works out how many flags each user owns by checking their owners.
     for flag in flags:
         owner = flag.get_owner().username
         owner_in_data = False
@@ -89,8 +90,6 @@ def leaderboard(request):
 
     data = sorted(data, key=lambda d: d['flag_count'], reverse=True)
     data = data[:5]
-
-    print(data)
 
     return render(request, 'leaderboard.html', {'data': data})
 

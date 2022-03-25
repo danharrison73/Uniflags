@@ -1,3 +1,5 @@
+<!--DESIGNED AND WRITTEN BY DAN-->
+
 <!DOCTYPE html>
 {% load static %}
 <html>
@@ -22,7 +24,7 @@
     <div class="outer-flex">
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark">
-          <a class="navbar-brand" href="/">Flags</a>
+          <a class="navbar-brand" href="/"><img class='home-logo' src="{% static 'icons/CTF-logo-transparent.png' %}"></a>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
@@ -38,7 +40,8 @@
       </header>
 
       <div class="home-content">
-        <h1>Map</h1>
+
+
         <br>
 <!--        <iframe class="home-map" width="600" height="450" style="border:0" loading="lazy" allowfullscreen-->
 <!--                src="https://www.google.com/maps/embed/v1/view?zoom=16&center=50.7371%2C-3.5351&key=AIzaSyBbN1Zdz9LktJuPSF-ZioLqxW-P2dM_qFg">-->
@@ -78,7 +81,7 @@
               userLocation = new google.maps.Marker({icon:flagMarkerBlue});
 
               const locationButton = document.createElement("button");
-              locationButton.className = 'btn btn-dark';
+              locationButton.className = 'btn location-button';
 
               const userLocationMarker =
               {
@@ -156,8 +159,9 @@
           rotation: 0,
           scale: 6,
            };
+
           let pos1 = {lat: 50.73838, lng: -3.53586};
-          let pos2 = {lat: 50.73849, lng: -3.53102};
+          let pos2 = {lat: 50.73812, lng: -3.53069};
           let pos3 = {lat: 50.737, lng: -3.532};
           let pos4 = {lat: 50.738, lng: -3.533};
           let pos5 = {lat: 50.737, lng: -3.533};
@@ -177,11 +181,11 @@
           });
 
           google.maps.event.addListener(marker1, 'click', function() {
-            flagMessage.textContent = "Your are not close enough to this flag!";
+            flagMessage.textContent = "You are not close enough to this flag!";
           });
 
           google.maps.event.addListener(marker3, 'click', function() {
-            flagMessage.textContent = "Your are not close enough to this flag!";
+            flagMessage.textContent = "You are not close enough to this flag!";
           });
 
           }

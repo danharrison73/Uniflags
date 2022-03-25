@@ -51,7 +51,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'uniflags.urls'
 
-
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATES = [
@@ -142,7 +141,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
-STATICFILES_DIRS = []
+STATICFILES_DIRS = ['staticfiles']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

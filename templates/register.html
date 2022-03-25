@@ -1,3 +1,4 @@
+<!--DESIGNED AND WRITTEN BY DAN-->
 <!DOCTYPE html>
 {% load static %}
 <html>
@@ -20,7 +21,7 @@
 <body class="text-center">
     <form class="form-register" action="/register" method="post">
       {% csrf_token %}
-      <h1 class="h1">Flags</h1>
+      <img class='home-logo' src="{% static 'icons/CTF-logo-transparent.png' %}">
       <br>
       <h1 class="h3 mb-3 font-weight-normal">Register today</h1>
       <div class="register-fields-container">
